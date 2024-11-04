@@ -3,12 +3,19 @@
 // YouTube.com/profgallaugher  -  threads.net/john.gallaugher
 
 import SwiftUI
+import SwiftData
 
 @main
 struct FriendsGivingApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            GuestListView()
+                .modelContainer(for: Guest.self)
         }
+    }
+    
+    // Will allow us to find the path where our simulator data is saved:
+    init() {
+        print(URL.applicationSupportDirectory.path(percentEncoded: false))
     }
 }
